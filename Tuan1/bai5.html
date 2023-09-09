@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var Dscore = [44, 23, 71];
+        // var Kscore = [65, 54, 49];
+        // Koalas win
+        const Dscore = [85, 54, 41];
+        const Kscore = [23, 34, 27];
+        // Dolphins win
+        function calcAverage(a, b, c) {
+            return ((a + b + c) / 3).toFixed(1);
+        }
+        var avgD = calcAverage(Dscore[0], Dscore[1], Dscore[2]);
+        var avgK = calcAverage(Kscore[0], Kscore[1], Kscore[2]);
+
+        function checkWinner(avgD, avgK) {
+            console.log(avgD > avgK ? 'Dolphins win (' + avgD + ' vs ' + avgK + ')' : 'Koalas  win (' + avgK + ' vs ' + avgD + ')');
+        }
+
+        checkWinner(avgD, avgK)
+    </script>
+</body>
+
+</html>

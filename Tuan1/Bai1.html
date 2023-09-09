@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var wM = 78
+        // var hM = 1.69
+        // var wJ = 92
+        // var hJ = 1.95
+        // true
+        var wM = 95
+        var hM = 1.88
+        var wJ = 85
+        var hJ = 1.76
+            // false
+        function BMI(w, h) {
+            return w / (h * h);
+        }
+
+        function compare(w1, h1, w2, h2) {
+            if (BMI(w1, h1) > BMI(w2, h2))
+                return true;
+            return false;
+        }
+        var markHigherBMI = compare(wM, hM, wJ, hJ);
+        console.log(markHigherBMI);
+    </script>
+</body>
+
+</html>

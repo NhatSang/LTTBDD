@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const bills = [22, 285, 176, 440, 37, 105, 10, 1100, 86, 52];
+        const tips = [];
+        const total = [];
+
+        function calcTip(valueBill) {
+            return 50 <= valueBill && valueBill <= 300 ? valueBill * 0.15 : valueBill * 0.2;
+        }
+
+        bills.forEach((x) => {
+            tips.push(calcTip(x))
+            total.push(x + calcTip(x))
+        })
+
+        function calcAverage(arr) {
+            var sum = 0;
+            for (var a of arr) {
+                sum += a;
+            }
+            return sum / arr.length;
+        }
+
+        console.log(bills);
+        console.log(tips);
+        console.log(total);
+        console.log(calcAverage(total));
+    </script>
+</body>
+
+</html>

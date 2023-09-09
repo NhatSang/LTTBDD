@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var wM = 78
+        var hM = 1.69
+        var wJ = 92
+        var hJ = 1.95
+
+        function BMI(w, h) {
+            return (w / (h * h)).toFixed(1);
+        }
+
+
+        if (BMI(wM, hM) > BMI(wJ, hJ))
+            console.log("Mark's BMI(" + BMI(wM, hM) + ") is higher than John's(" + BMI(wJ, hJ) + ")!");
+        else
+            console.log("John's(" + BMI(wJ, hJ) + ") BMI is higher than Mark's(" + BMI(wM, hM) + ")!");
+    </script>
+</body>
+
+</html>

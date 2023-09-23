@@ -1,37 +1,62 @@
-
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>LOGIN</Text>
+      <Text style={styles.head1}>LOGIN</Text>
       <View style={styles.rowInput}>
         <TextInput style={styles.input} placeholder="Email" />
       </View>
       <View style={styles.rowInput}>
         <TextInput style={styles.input} placeholder="Password" />
-        <Image
-          source={require("./assets/eye 1.png")}
-          style={{ width: 36, height: 36 }}
-        />
+        <TouchableOpacity>
+          <Image
+            source={require("./assets/eye 1.png")}
+            style={{ width: 36, height: 36 }}
+          />
+        </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.btnLogin}>
-        <Text>LOGIN</Text>
+        <Text style={{ fontSize: 20, fontWeight: "700", color: "#fff" }}>
+          LOGIN
+        </Text>
       </TouchableOpacity>
-      <Text>When you agree to terms and conditions</Text>
-      <Text>For got your password?</Text>
-      <Text>Or login with</Text>
+      <Text style={{ fontSize: 14, fontWeight: "400" }}>
+        When you agree to terms and conditions
+      </Text>
+      <Text
+        style={{
+          fontSize: 14,
+          fontWeight: "400",
+          color: "rgba(93, 37, 250, 1)",
+        }}
+      >
+        For got your password?
+      </Text>
+      <Text style={{ fontSize: 14, fontWeight: "400" }}>Or login with</Text>
       <View style={styles.rowBTN}>
         <TouchableOpacity
-          style={[styles.btnOthLogin, {backgroundColor: "rgb(39,90,141)"}]}
+          style={[styles.btnOthLogin, { backgroundColor: "rgb(39,90,141)" }]}
         >
           <Image
             source={require("./assets/icofacebook-1924510 1.png")}
             style={{ width: 30, height: 30 }}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.btnOthLogin, {backgroundColor: "rgba(6, 128, 241, 1)"}]}>
-          <Text>Z</Text>
+        <TouchableOpacity
+          style={[
+            styles.btnOthLogin,
+            { backgroundColor: "rgba(6, 128, 241, 1)" },
+          ]}
+        >
+          <Text style={{fontSize:35,fontWeight:"700",color:'#fff'}}>Z</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btnOthLogin}>
           <Image
@@ -47,8 +72,47 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    alignItems: "center",
+    justifyContent: "space-evenly",
   },
+  head1: {
+    fontSize: 25,
+    fontWeight: "700",
+  },
+  rowInput: {
+    display: "flex",
+    flexDirection: "row",
+    width: 330,
+    height: 54,
+    backgroundColor: "rgba(196, 196, 196, 0.3)",
+    padding: 10,
+  },
+  input: {
+    width: 290,
+  },
+  btnLogin: {
+    display: "flex",
+    width: 330,
+    height: 45,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(229, 57, 53, 1)",
+  },
+  rowBTN:{
+    display:'flex',
+    flexDirection:'row',
+    width:328,
+    height:45,
+
+  },
+  btnOthLogin:{
+    display:'flex',
+    width:109,
+    height:45,
+    borderWidth:1,
+    borderColor:'rgba(6, 128, 241, 1)',
+    alignItems:'center',
+    justifyContent:'center'
+  }
 });

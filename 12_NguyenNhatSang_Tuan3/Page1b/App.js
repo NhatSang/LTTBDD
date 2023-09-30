@@ -1,19 +1,9 @@
 
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <LinearGradient
-        // Background Linear Gradient
-        colors={[
-          "rgba(199, 244, 246, 1)",
-          "rgba(209, 244, 246, 1)",
-          "rgba(229, 244, 245, 1)",
-          "rgba(0, 204, 249, 1)",
-        ]}
-        style={styles.background}
-      />
       <Image
         source={require("./assets/lock-152879 1.png")}
         style={{ width: 105, height: 117 }}
@@ -25,7 +15,7 @@ export default function App() {
       <View style={styles.rowInput}>
         <Image
           source={require("./assets/mail-2935365 1.png")}
-          style={{ width: 48, height: 45 }}
+          style={[styles.icon,{ width: 45, height: 40 }]}
         />
         <TextInput style={styles.input} placeholder="Email"/>
       </View>
@@ -39,25 +29,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundImage: 'linear-gradient(to bottom, rgba(199, 244, 246, 1),rgba(209, 244, 246, 1),rgba(229, 244, 245, 1),rgba(0, 204, 249, 1))',
     alignItems: "center",
     justifyContent: "space-evenly",
-  },
-  background: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    height: 640,
   },
   rowInput: {
     display: "flex",
     flexDirection: "row",
   },
   input: {
-    width: 257,
+    width: 305,
     height: 45,
     backgroundColor: "rgba(196, 196, 196, 1)",
+    paddingLeft:50
+  },
+  icon :{
+    position:'absolute',
+    top:2,
+    left:2
   },
   btn: {
     display: "flex",

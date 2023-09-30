@@ -33,15 +33,17 @@ export default function App() {
       </View>
       <View style={styles.rowInput}>
         <TextInput style={styles.input} placeholder="Password" />
-        <Image
-          source={require("./assets/eye 1.png")}
-          style={{ width: 36, height: 36 }}
-        />
+        <TouchableOpacity>
+          <Image
+            source={require("./assets/eye 1.png")}
+            style={[styles.icon, { width: 36, height: 36 }]}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.rowInput}>
         <TextInput style={styles.input} placeholder="Birthday" />
       </View>
-      <View style={[styles.rowInput,{backgroundColor:'transparent'}]}>
+      <View style={[styles.rowInput, { backgroundColor: "transparent" }]}>
         <RadioForm
           style={{ display: "flex", flexDirection: "row" }}
           radio_props={radio_props}
@@ -50,9 +52,13 @@ export default function App() {
         />
       </View>
       <TouchableOpacity style={styles.btn}>
-        <Text style={{fontSize:20,fontWeight:"700",color:'#fff'}}>REGISTER</Text>
+        <Text style={{ fontSize: 20, fontWeight: "700", color: "#fff" }}>
+          REGISTER
+        </Text>
       </TouchableOpacity>
-      <Text style={{fontSize:14,fontWeight:"400"}}>When you agree to terms and conditions</Text>
+      <Text style={{ fontSize: 14, fontWeight: "400" }}>
+        When you agree to terms and conditions
+      </Text>
     </View>
   );
 }
@@ -71,13 +77,18 @@ const styles = StyleSheet.create({
   rowInput: {
     width: 330,
     height: 54,
-    padding: 10,
     backgroundColor: "rgba(242, 242, 242, 1)",
     display: "flex",
     flexDirection: "row",
   },
   input: {
-    width: 290,
+    width: 330,
+    padding: 10,
+  },
+  icon: {
+    position: "absolute",
+    top: 8,
+    right: 10,
   },
   btn: {
     width: 330,

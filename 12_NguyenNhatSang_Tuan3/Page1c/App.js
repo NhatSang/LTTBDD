@@ -1,19 +1,9 @@
 
 import { StyleSheet, Text, TextInput, View, TouchableOpacity} from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 export default function App() {
   return (
     <View style={styles.container}>
-      <LinearGradient
-        // Background Linear Gradient
-        colors={[
-          "rgba(199, 244, 246, 1)",
-          "rgba(209, 244, 246, 1)",
-          "rgba(229, 244, 245, 1)",
-          "rgba(0, 204, 249, 1)",
-        ]}
-        style={styles.background}
-      />
+
       <Text style={styles.head1}>CODE</Text>
       <Text style={styles.title}>VERIFICATION</Text>
       <Text style={styles.title2}>
@@ -37,7 +27,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundImage: 'linear-gradient(rgba(199, 244, 246, 1),rgba(209, 244, 246, 1),rgba(229, 244, 245, 1),rgba(0, 204, 249, 1))',
     alignItems: "center",
     justifyContent: "space-evenly",
   },

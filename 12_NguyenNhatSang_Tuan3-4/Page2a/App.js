@@ -1,5 +1,11 @@
-
-import { StyleSheet, Text, View, TextInput,Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 
 export default function App() {
   return (
@@ -23,10 +29,10 @@ export default function App() {
           />
           <TextInput style={styles.input} placeholder="Password" />
           <TouchableOpacity>
-          <Image
-            source={require("./assets/eye 1.png")}
-            style={[styles.icon2, { width: 32, height: 32 }]}
-          />
+            <Image
+              source={require("./assets/eye 1.png")}
+              style={[styles.icon2, { width: 32, height: 32 }]}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -35,7 +41,9 @@ export default function App() {
           LOGIN
         </Text>
       </TouchableOpacity>
-      <Text style={{ fontSize: 20, fontWeight: "700" }}>CREATE ACCOUNT</Text>
+      <TouchableOpacity>
+        <Text style={{ fontSize: 20, fontWeight: "700" }}>CREATE ACCOUNT</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -43,11 +51,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundImage:'linear-gradient(rgba(251, 203, 0, 1),rgba(191, 154, 0, 1))',
+    backgroundImage:
+      "linear-gradient(rgba(251, 203, 0, 1),rgba(191, 154, 0, 1))",
     alignItems: "center",
     justifyContent: "space-evenly",
   },
-
+  containerInput: {
+    height: 150,
+    display: "flex",
+    justifyContent: "space-around",
+  },
   rowInput: {
     width: 330,
     height: 54,
@@ -62,23 +75,19 @@ const styles = StyleSheet.create({
     width: 330,
     height: 54,
     fontSize: 18,
-    paddingLeft:40
+    paddingLeft: 40,
   },
   icon: {
-    position:'absolute',
-    top:8,
-    left:2
+    position: "absolute",
+    top: 8,
+    left: 2,
   },
-  icon2:{
-    position:'absolute',
-    top:-15,
-    right:10
+  icon2: {
+    position: "absolute",
+    top: -15,
+    right: 10,
   },
-  containerInput: {
-    height: 150,
-    display: "flex",
-    justifyContent: "space-around",
-  },
+
   btn: {
     display: "flex",
     alignItems: "center",

@@ -11,40 +11,30 @@ export default function App() {
   var [number, choiceNumber] = useState(true);
   var [specialSymbol, choiceSpecialSymbol] = useState(true);
   var generatePassword = (length, lc, uc, num, sps) => {
-    var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-    var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var numbers = "0123456789";
-    var specialChars = "@#$!%*?&";
-    var pattern = /./;
+    var lowercaseChars = "";
+    var uppercaseChars = "";
+    var numbers = "";
+    var specialChars = "";
+    var pattern = "";
 
-    if (!lc) lowercaseChars = "";
-    if (!uc) uppercaseChars = "";
-    if (!num) numbers = "";
-    if (!sps) specialChars = "";
-
-    if (lc && uc && num && sps) {
-      pattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[@#$!%*?&])/;
-    } else if (!lc && uc && num && sps) {
-      pattern = /(?=.*[A-Z])(?=.*[\d])(?=.*[@#$!%*?&])/;
-    } else if (lc && !uc && num && sps) {
-      pattern = /(?=.*[a-z])(?=.*[\d])(?=.*[@#$!%*?&])/;
-    } else if (lc && uc && !num && sps) {
-      pattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!%*?&])/;
-    } else if (lc && uc && num && !sps) {
-      pattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])/;
-    } else if (!lc && !uc && num && sps) {
-      pattern = /(?=.*[\d])(?=.*[@#$!%*?&])/;
-    } else if (!lc && uc && !num && sps) {
-      pattern = /(?=.*[A-Z])(?=.*[@#$!%*?&])/;
-    } else if (!lc && uc && num && !sps) {
-      pattern = /(?=.*[A-Z])(?=.*[\d])/;
-    } else if (lc && !uc && !num && sps) {
-      pattern = /(?=.*[a-z])(?=.*[@#$!%*?&])/;
-    } else if (lc && !uc && num && !sps) {
-      pattern = /(?=.*[a-z])(?=.*[\d])/;
-    } else if (lc && uc && !num && !sps) {
-      pattern = /(?=.*[a-z])(?=.*[A-Z])/;
+    if (lc) {
+      lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+      pattern += "(?=.*[a-z])";
     }
+    if (uc) {
+      uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      pattern += "(?=.*[A-Z])";
+    }
+    if (num) {
+      numbers = "0123456789";
+      pattern += "(?=.*[0-9])";
+    }
+    if (sps) {
+      specialChars = "@#$!%*?&";
+      pattern += "(?=.*[@#$!%*?&])";
+    }
+
+    var finalPattern = new RegExp(pattern);
     var allChars = lowercaseChars + uppercaseChars + specialChars + numbers;
     let password = "";
     do {
@@ -53,7 +43,7 @@ export default function App() {
         const randomIndex = Math.floor(Math.random() * allChars.length);
         password += allChars.charAt(randomIndex);
       }
-    } while (!pattern.test(password));
+    } while (!finalPattern.test(password));
 
     setPassword(password);
   };
@@ -180,8 +170,8 @@ const styles = StyleSheet.create({
     height: 55,
     backgroundColor: "rgba(21, 21, 55, 1)",
     color: "#fff",
-    fontSize:18,
-    textAlign:'center'
+    fontSize: 18,
+    textAlign: "center",
   },
   row: {
     display: "flex",

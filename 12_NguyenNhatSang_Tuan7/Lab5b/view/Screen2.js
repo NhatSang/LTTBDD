@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { FlatList, Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 const arr = [
   {
@@ -10,6 +18,7 @@ const arr = [
     Description:
       "It is a very important form of writing as we write almost everything in paragraphs, be it an answer, essay, story, emails, etc.",
     discount: "15%",
+    type: "MT",
   },
   {
     id: 2,
@@ -19,6 +28,7 @@ const arr = [
     Description:
       "It is a very important form of writing as we write almost everything in paragraphs, be it an answer, essay, story, emails, etc.",
     discount: "15%",
+    type: "MT",
   },
   {
     id: 3,
@@ -28,6 +38,7 @@ const arr = [
     Description:
       "It is a very important form of writing as we write almost everything in paragraphs, be it an answer, essay, story, emails, etc.",
     discount: "15%",
+    type: "RB",
   },
   {
     id: 4,
@@ -37,6 +48,7 @@ const arr = [
     Description:
       "It is a very important form of writing as we write almost everything in paragraphs, be it an answer, essay, story, emails, etc.",
     discount: "15%",
+    type: "RB",
   },
   {
     id: 5,
@@ -46,6 +58,7 @@ const arr = [
     Description:
       "It is a very important form of writing as we write almost everything in paragraphs, be it an answer, essay, story, emails, etc.",
     discount: "15%",
+    type: "RB",
   },
   {
     id: 6,
@@ -55,9 +68,10 @@ const arr = [
     Description:
       "It is a very important form of writing as we write almost everything in paragraphs, be it an answer, essay, story, emails, etc.",
     discount: "15%",
+    type: "MT",
   },
 ];
-export default function Screen2({navigation}) {
+export default function Screen2({ navigation }) {
   const [data, setData] = useState(arr);
   const [state, setState] = useState(1);
   return (
@@ -73,6 +87,7 @@ export default function Screen2({navigation}) {
         >
           <Pressable
             onPress={() => {
+              setData(arr);
               setState(1);
             }}
             style={styles.btn}
@@ -90,6 +105,11 @@ export default function Screen2({navigation}) {
           </Pressable>
           <Pressable
             onPress={() => {
+              setData([
+                ...arr.filter((x) => {
+                  return x.type == "RB";
+                }),
+              ]);
               setState(2);
             }}
             style={styles.btn}
@@ -107,6 +127,11 @@ export default function Screen2({navigation}) {
           </Pressable>
           <Pressable
             onPress={() => {
+              setData([
+                ...arr.filter((x) => {
+                  return x.type == "MT";
+                }),
+              ]);
               setState(3);
             }}
             style={styles.btn}
@@ -130,9 +155,9 @@ export default function Screen2({navigation}) {
             renderItem={({ item }) => {
               return (
                 <Pressable
-                onPress={()=>{
-                    navigation.navigate('Screen3',item)
-                }}
+                  onPress={() => {
+                    navigation.navigate("Screen3", item);
+                  }}
                   style={{
                     width: 167,
                     height: 200,

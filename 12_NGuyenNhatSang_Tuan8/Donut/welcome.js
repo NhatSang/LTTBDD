@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TextInput, Pressable, ScrollView, FlatList, Ima
 import { useEffect, useState } from "react";
 
 var arr = []
-const welcome = () => {
+const welcome = ({navigation}) => {
   const [data, setData] = useState([]);
   const [state, setState] = useState(1);
   useEffect(()=>{

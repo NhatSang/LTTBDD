@@ -8,7 +8,7 @@ const Screen2 = ({navigation,route}) => {
         fetch("https://6546fee0902874dff3abe603.mockapi.io/user/" + route.params?.id)
           .then((response) => response.json())
           .then((json) => setUser(json));
-    },[user.todo])
+    },[route])
     useEffect(()=>{
         navigation.setOptions({
           headerRight: () => (

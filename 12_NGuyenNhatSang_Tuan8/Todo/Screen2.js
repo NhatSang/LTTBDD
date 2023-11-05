@@ -1,5 +1,6 @@
 import { FlatList, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { ScrollView } from 'react-native';
 
 const Screen2 = ({navigation,route}) => {
     const [user,setUser] = useState({});
@@ -61,54 +62,56 @@ const Screen2 = ({navigation,route}) => {
           }}
         />
       </View>
-      <View style={{ height: "80%", alignItems: "center"}}>
-        <View>
-          <FlatList
-            data={user.todo}
-            renderItem={({ item }) => (
-              <View
-                style={{
-                  flexDirection: "row",
-                  width: 335,
-                  height: 48,
-                  borderRadius: 24,
-                  backgroundColor: "rgba(144, 149, 160, 1)",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  margin:10
-                }}
-              >
-                <Image
-                  source={require("./assets/check.png")}
-                  style={{ width: 24, height: 24 }}
-                />
-                <Text>{item.job}</Text>
-                <Pressable>
+      <View style={{ height: "80%" }}>
+        <ScrollView>
+          <View style={{ alignItems: "center" }}>
+            <FlatList
+              data={user.todo}
+              renderItem={({ item }) => (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    width: 335,
+                    height: 48,
+                    borderRadius: 24,
+                    backgroundColor: "rgba(144, 149, 160, 1)",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    margin: 10,
+                  }}
+                >
                   <Image
-                    source={require("./assets/edit.png")}
+                    source={require("./assets/check.png")}
                     style={{ width: 24, height: 24 }}
                   />
-                </Pressable>
-              </View>
-            )}
-          />
-        </View>
-        <Pressable
-        onPress={()=>navigation.navigate("Screen3",{user})}
-          style={{
-            width: 69,
-            height: 69,
-            borderRadius: "50%",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "rgba(0, 189, 214, 1)",
-          }}
-        >
-          <Image
-            source={require("./assets/plus.png")}
-            style={{ width: 32, height: 32 }}
-          />
-        </Pressable>
+                  <Text>{item.job}</Text>
+                  <Pressable>
+                    <Image
+                      source={require("./assets/edit.png")}
+                      style={{ width: 24, height: 24 }}
+                    />
+                  </Pressable>
+                </View>
+              )}
+            />
+            <Pressable
+              onPress={() => navigation.navigate("Screen3", { user })}
+              style={{
+                width: 69,
+                height: 69,
+                borderRadius: "50%",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "rgba(0, 189, 214, 1)",
+              }}
+            >
+              <Image
+                source={require("./assets/plus.png")}
+                style={{ width: 32, height: 32 }}
+              />
+            </Pressable>
+          </View>
+        </ScrollView>
       </View>
     </View>
   );

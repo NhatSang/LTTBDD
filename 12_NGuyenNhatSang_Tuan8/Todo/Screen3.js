@@ -98,7 +98,6 @@ const Screen3 = ({ navigation, route }) => {
             if(response.ok)
                 return navigation.navigate("Screen2",{id:user.id});
           })
-
         }}
         style={{
           width: 190,
